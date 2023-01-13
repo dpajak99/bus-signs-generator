@@ -84,6 +84,7 @@ table, td, tr {
 
 .km001_departures-table {
     width: 100%;
+    table-layout: fixed;
 }
 
 .km001_symbol_b {
@@ -129,7 +130,6 @@ table, td, tr {
     font-weight: bold;
     font-size: 10px;
     text-align: center;
-    width: 11.5%;
     vertical-align: middle;
 }
 
