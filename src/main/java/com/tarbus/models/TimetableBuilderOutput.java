@@ -10,4 +10,12 @@ import java.util.List;
 public class TimetableBuilderOutput {
     private List<TimetableDocumentStructure> singleTimetables;
     private List<TimetableDocumentStructure> sharedTimetables;
+
+    @Override
+    public String toString() {
+        return "TimetableBuilderOutput{" +
+                "singleTimetables=" + singleTimetables +
+                ", sharedTimetables=" + sharedTimetables +
+                '}';
+    }
 }

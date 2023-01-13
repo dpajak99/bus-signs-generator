@@ -1,9 +1,9 @@
 package com.tarbus.models.schedule;
 
+import com.tarbus.models.timetable_template_content.TimetableTemplateContent;
 import com.tarbus.utils.TimetableTemplateResolver;
 import lombok.Getter;
 import lombok.Setter;
-import com.tarbus.models.TimetablePageStructure;
 import com.tarbus.infra.entity.TimetableTemplateType;
 
 import java.io.IOException;
@@ -18,9 +18,9 @@ public class TimetableTemplateModel {
     private String uploaderId;
     private TimetableTemplateType type;
     
-    public String process(TimetablePageStructure.Template template) throws IOException {
-        Map<String, Object> variables = Map.of("timetable", template.getTimeTableData());
-       return  TimetableTemplateResolver.resolveTemplateFile(template.getTimetableTemplate().getId(), variables);
+    public String process(TimetableTemplateContent timetableTemplateContent) throws IOException {
+        Map<String, Object> variables = Map.of("timetable", timetableTemplateContent.getTimeTableData());
+       return  TimetableTemplateResolver.resolveTemplateFile(timetableTemplateContent.getTimetableTemplate().getId(), variables);
     }
     
     public boolean isMultipleTemplate() {
@@ -37,5 +37,14 @@ public class TimetableTemplateModel {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "TimetableTemplateModel{" +
+                "id='" + id + '\'' +
+                ", uploaderId='" + uploaderId + '\'' +
+                ", type=" + type +
+                '}';
     }
 }

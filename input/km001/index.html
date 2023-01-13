@@ -85,7 +85,7 @@
                     <span th:if="${index < size}" th:with="symbols=${departures[index].getSymbolsString()}">
                       <span
                         th:classappend="${#lists.contains(symbols, &quot;G&quot;) or #lists.contains(symbols, &quot;D&quot;) or #lists.contains(symbols, &quot;GD&quot;) or  #lists.contains(symbols, &quot;K&quot;) or #lists.contains(symbols, &quot;T&quot;) or #lists.contains(symbols, &quot;KT&quot;) or #lists.contains(symbols, &quot;P&quot;)} ? km001_symbol_n : km001_symbol_none">
-                        <span th:text="${departures[index].getTimeString()  }"></span><!--
+                        <span th:text="${departures[index].getTimeString('H:mm')  }"></span><!--
                         --><span class="km001_symbol_b" th:if="${#lists.contains(symbols, &quot;X&quot;)}">X</span><!--
                         --><span class="km001_symbol_b" th:if="${#lists.contains(symbols, &quot;R&quot;)}">R</span><!--
                         --><span class="km001_symbol_b" th:if="${#lists.contains(symbols, &quot;M&quot;)}">X</span><!--

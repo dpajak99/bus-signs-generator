@@ -29,7 +29,6 @@ public class DepartureSymbolServiceImpl implements DepartureSymbolService {
         fullSymbols.addAll(Arrays.stream(symbols.split("")).toList());
         List<String> fullSymbolsList = fullSymbols.stream().filter((e) -> !Objects.equals(e, " ") && !Objects.equals(e, "")).toList();
         List<DepartureSymbolEntity> departureSymbolEntities = new ArrayList<>();
-        System.out.println("Full symbols: " + fullSymbolsList);
         for(String symbol : fullSymbolsList ) {
             Optional<DepartureSymbolEntity> symbolEntity = departureSymbolRepository.findByNameAndRoute(symbol, routeId);
             if( symbolEntity.isPresent() ) {

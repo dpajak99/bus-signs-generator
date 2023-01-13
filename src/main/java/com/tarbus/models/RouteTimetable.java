@@ -11,4 +11,12 @@ import java.util.List;
 public class RouteTimetable {
     private RouteModel route;
     private List<StopTimetableConfig> stopTimetableConfigs;
+
+    @Override
+    public String toString() {
+        return "RouteTimetable{" +
+                "route=" + route +
+                ", stopTimetableConfigs=" + stopTimetableConfigs +
+                '}';
+    }
 }

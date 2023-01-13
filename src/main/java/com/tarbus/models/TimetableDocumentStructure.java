@@ -10,4 +10,12 @@ import java.util.List;
 public class TimetableDocumentStructure {
     private String fileName;
     private List<TimetablePageStructure> pages;
+
+    @Override
+    public String toString() {
+        return "TimetableDocumentStructure{" +
+                "fileName='" + fileName + '\'' +
+                ", pages=" + pages +
+                '}';
+    }
 }

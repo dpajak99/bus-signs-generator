@@ -16,4 +16,14 @@ public class TimetableVersionModel {
     private Date dateStart;
     
     private Date dateEnd;
+
+    @Override
+    public String toString() {
+        return "TimetableVersionModel{" +
+                "id=" + id +
+                ", company=" + company +
+                ", dateStart=" + dateStart +
+                ", dateEnd=" + dateEnd +
+                '}';
+    }
 }

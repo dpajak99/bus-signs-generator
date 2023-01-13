@@ -13,4 +13,14 @@ public class LineModel {
     private String name;
     
     private String comments;
+
+    @Override
+    public String toString() {
+        return "LineModel{" +
+                "id=" + id +
+                ", timetableVersion=" + timetableVersion +
+                ", name='" + name + '\'' +
+                ", comments='" + comments + '\'' +
+                '}';
+    }
 }

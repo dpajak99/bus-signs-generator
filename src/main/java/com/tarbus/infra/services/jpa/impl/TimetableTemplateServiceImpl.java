@@ -34,17 +34,14 @@ public class TimetableTemplateServiceImpl implements TimetableTemplateService {
 
     @Override
     public TimetableTemplateModel getTimetableTemplateByRouteId(Long routeId) {
-        System.out.println("find by route id " + routeId );
         Optional<TimetableTemplateEntity> routeTimetableTemplateEntity = timetableTemplateRepository.findByRouteId(routeId);
         if( routeTimetableTemplateEntity.isPresent() ) {
-            System.out.println("found go next" );
             return timetableTemplateMapper.mapToModel(routeTimetableTemplateEntity.get());
         }
     
         RouteModel routeModel = routeService.getRouteById(routeId);
         Long companyId = routeModel.getLine().getTimetableVersion().getCompany().getId();
         TimetableTemplateEntity companyTimetableTemplateEntity = timetableTemplateRepository.findByCompanyId(companyId);
-        System.out.println("found: " + companyTimetableTemplateEntity.getId() );
         return timetableTemplateMapper.mapToModel(companyTimetableTemplateEntity);
     }
 }

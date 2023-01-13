@@ -29,4 +29,17 @@ public class StopModel {
     public int hashCode() {
         return Objects.hash(id, name, searchName, destinations, city, lat, lng);
     }
+
+    @Override
+    public String toString() {
+        return "StopModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", searchName='" + searchName + '\'' +
+                ", destinations='" + destinations + '\'' +
+                ", city='" + city + '\'' +
+                ", lat=" + lat +
+                ", lng=" + lng +
+                '}';
+    }
 }

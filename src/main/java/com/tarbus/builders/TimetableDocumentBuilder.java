@@ -69,7 +69,7 @@ public class TimetableDocumentBuilder {
         return sharedTimetableDocuments;
     }
 
-    public TimetablePageStructure getTimetablePageStructure(List<StopTimetableConfig> stopTimetablesData) {
+    private TimetablePageStructure getTimetablePageStructure(List<StopTimetableConfig> stopTimetablesData) {
         TimetablePageStructure timetablePageStructure = new TimetablePageStructure();
 
         for (StopTimetableConfig stopTimetableConfig : stopTimetablesData) {

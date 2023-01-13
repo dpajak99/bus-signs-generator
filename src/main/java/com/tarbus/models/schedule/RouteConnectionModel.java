@@ -26,4 +26,16 @@ public class RouteConnectionModel {
     public int hashCode() {
         return Objects.hash(id, route, stop, isOptional, lp, description);
     }
+
+    @Override
+    public String toString() {
+        return "RouteConnectionModel{" +
+                "id=" + id +
+                ", route=" + route +
+                ", stop=" + stop +
+                ", isOptional=" + isOptional +
+                ", lp=" + lp +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

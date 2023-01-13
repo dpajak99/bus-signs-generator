@@ -36,4 +36,19 @@ public class CompanyEntity {
     
     @Column(name = "business_card")
     private String businessCard;
+
+    @Override
+    public String toString() {
+        return "CompanyEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", website='" + website + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", timezone='" + timezone + '\'' +
+                ", lang='" + lang + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", businessCard='" + businessCard + '\'' +
+                '}';
+    }
 }

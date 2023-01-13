@@ -21,7 +21,7 @@ public class TimetableTemplateResolver {
         return resolve(templateId + "/index.html", variables);
     }
 
-    public static String resolve(String localPath, Map<String, Object> variables) throws IOException {
+    private static String resolve(String localPath, Map<String, Object> variables) throws IOException {
         String content = new String(Files.readAllBytes(Paths.get(baseTemplatePath + localPath)));
         
         TemplateEngine templateEngine = new TemplateEngine();

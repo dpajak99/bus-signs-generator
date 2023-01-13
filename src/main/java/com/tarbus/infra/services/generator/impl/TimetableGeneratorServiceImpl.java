@@ -45,6 +45,7 @@ public class TimetableGeneratorServiceImpl implements TimetableGeneratorService 
             timetablePdfBuilder.saveAll(timetableBuilderOutput.getSingleTimetables(), "single");
             timetablePdfBuilder.saveAll(timetableBuilderOutput.getSharedTimetables(), "shared");
         } catch (Exception e) {
+            System.err.println("Cannot save pdf files");
             e.printStackTrace();
         }
 

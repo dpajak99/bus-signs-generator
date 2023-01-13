@@ -29,9 +29,7 @@ public class DepartureMapper {
         DepartureModel departureModel = new DepartureModel();
         departureModel.setTimeInMin(departureEntity.getTimeInMin());
         departureModel.setTrack(trackModel);
-        System.out.println("get by symbol");
         departureModel.setSymbols(departureSymbolService.getBySymbolsNameAndRoute(departureEntity.getSymbols(), trackModel.getRouteModel().getId()));
-        System.out.println("after get by symbol");
         return departureModel;
     }
 }

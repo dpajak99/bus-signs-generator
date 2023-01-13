@@ -14,5 +14,15 @@ public class StopTimetableConfig {
     private StopModel stop;
     private SingleTimetableData singleTimetableData = new SingleTimetableData();
     private TimetableTemplateModel timetableTemplate;
+
+    @Override
+    public String toString() {
+        return "StopTimetableConfig{" +
+                "route=" + route +
+                ", stop=" + stop +
+                ", singleTimetableData=" + singleTimetableData +
+                ", timetableTemplate=" + timetableTemplate +
+                '}';
+    }
 }
 

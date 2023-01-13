@@ -23,4 +23,13 @@ public class SymbolModel {
     public int hashCode() {
         return Objects.hash(symbol, direction, description);
     }
+
+    @Override
+    public String toString() {
+        return "SymbolModel{" +
+                "symbol='" + symbol + '\'' +
+                ", direction='" + direction + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

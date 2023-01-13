@@ -33,4 +33,16 @@ public class SingleTimetableData implements TimetableData {
     public List<String> getCitiesFromNow() {
         return getRouteConnectionsFromNow().stream().map(RouteConnectionModel::getStop).map(StopModel::getCity).distinct().toList();
     }
+
+    @Override
+    public String toString() {
+        return "SingleTimetableData{" +
+                "stop=" + stop +
+                ", route=" + route +
+                ", routeConnection=" + routeConnection +
+                ", routeConnections=" + routeConnections +
+                ", departures=" + departures +
+                ", destinations=" + destinations +
+                '}';
+    }
 }
