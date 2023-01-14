@@ -1,7 +1,7 @@
 package com.tarbus.models.timetable_template_content;
 
 import com.tarbus.models.schedule.RouteModel;
-import com.tarbus.models.schedule.TimetableTemplateModel;
+import com.tarbus.models.schedule.timetable_template_model.TimetableTemplateModel;
 import com.tarbus.models.timetable_data.MultiTimetableData;
 import com.tarbus.models.timetable_data.SingleTimetableData;
 import com.tarbus.models.timetable_data.TimetableData;
@@ -19,13 +19,6 @@ public class MultiTimetableTemplateContent implements TimetableTemplateContent {
     private TimetableTemplateModel timetableTemplate;
     private List<RouteModel> routes;
     private MultiTimetableData timetableData;
-
-    public MultiTimetableTemplateContent(TimetableTemplateModel timetableTemplate, List<RouteModel> routes) {
-        this.timetableTemplate = timetableTemplate;
-        this.routes = new ArrayList<>(routes);
-        this.schedules = new ArrayList<>();
-        this.timetableData = new MultiTimetableData();
-    }
 
     public MultiTimetableTemplateContent(TimetableTemplateModel timetableTemplate, List<SingleTimetableData> schedules, List<RouteModel> routes) {
         this.timetableTemplate = timetableTemplate;

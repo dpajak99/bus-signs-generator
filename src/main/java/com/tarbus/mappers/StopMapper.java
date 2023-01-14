@@ -1,6 +1,6 @@
 package com.tarbus.mappers;
 
-import com.tarbus.infra.entity.StopEntity;
+import com.tarbus.entity.StopEntity;
 import com.tarbus.models.schedule.StopModel;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,7 @@
 package com.tarbus.models.timetable_template_content;
 
 import com.tarbus.models.schedule.RouteModel;
-import com.tarbus.models.schedule.TimetableTemplateModel;
+import com.tarbus.models.schedule.timetable_template_model.TimetableTemplateModel;
 import com.tarbus.models.timetable_data.SingleTimetableData;
 import com.tarbus.models.timetable_data.TimetableData;
 import lombok.Getter;

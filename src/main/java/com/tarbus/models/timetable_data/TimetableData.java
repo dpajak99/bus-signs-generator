@@ -1,3 +1,9 @@
 package com.tarbus.models.timetable_data;
 
-public interface TimetableData {}
+import com.tarbus.entity.StopEntity;
+import com.tarbus.models.schedule.StopModel;
+
+public interface TimetableData {
+    boolean isStopOnRequest();
+    StopModel getStop();
+}

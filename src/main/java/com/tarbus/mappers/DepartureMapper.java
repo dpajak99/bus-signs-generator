@@ -1,9 +1,9 @@
 package com.tarbus.mappers;
 
-import com.tarbus.infra.services.jpa.DepartureSymbolService;
+import com.tarbus.services.jpa.DepartureSymbolService;
 import com.tarbus.models.schedule.DepartureModel;
 import com.tarbus.models.schedule.TrackModel;
-import com.tarbus.infra.entity.DepartureEntity;
+import com.tarbus.entity.DepartureEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package com.tarbus.mappers;
 
-import com.tarbus.infra.entity.RouteEntity;
+import com.tarbus.entity.RouteEntity;
 import com.tarbus.models.schedule.RouteModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

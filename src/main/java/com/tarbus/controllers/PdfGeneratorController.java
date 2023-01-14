@@ -1,10 +1,10 @@
 package com.tarbus.controllers;
 
-import com.tarbus.infra.dto.request.generate_timetable_request.GenerateTimetableRequest;
-import com.tarbus.infra.dto.response.generate_timetable_response.GenerateTimetableResponseError;
-import com.tarbus.infra.services.generator.TimetableGeneratorService;
-import com.tarbus.infra.services.generator.impl.TimetableGeneratorServiceImpl;
-import com.tarbus.infra.dto.response.generate_timetable_response.GenerateTimetableResponse;
+import com.tarbus.dto.request.generate_timetable_request.GenerateTimetableRequest;
+import com.tarbus.dto.response.generate_timetable_response.GenerateTimetableResponseError;
+import com.tarbus.services.generator.TimetableGeneratorService;
+import com.tarbus.services.generator.impl.TimetableGeneratorServiceImpl;
+import com.tarbus.dto.response.generate_timetable_response.GenerateTimetableResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

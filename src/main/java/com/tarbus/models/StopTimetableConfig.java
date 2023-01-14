@@ -3,7 +3,7 @@ package com.tarbus.models;
 import com.tarbus.models.timetable_data.SingleTimetableData;
 import lombok.Getter;
 import lombok.Setter;
-import com.tarbus.models.schedule.TimetableTemplateModel;
+import com.tarbus.models.schedule.timetable_template_model.TimetableTemplateModel;
 import com.tarbus.models.schedule.RouteModel;
 import com.tarbus.models.schedule.StopModel;
 

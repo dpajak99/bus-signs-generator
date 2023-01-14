@@ -3,11 +3,18 @@ package com.tarbus.builders;
 import com.tarbus.models.*;
 import com.tarbus.models.schedule.RouteModel;
 import com.tarbus.models.schedule.StopModel;
-import com.tarbus.models.schedule.TimetableTemplateModel;
+import com.tarbus.models.schedule.timetable_template_model.TimetableTemplateModel;
+import com.tarbus.utils.file_naming_policy.FileNamingPolicy;
+import com.tarbus.utils.file_naming_policy.RouteIdFileNamingPolicy;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.*;
 
+@Getter
+@Setter
 public class TimetableDocumentBuilder {
+    private FileNamingPolicy fileNamingPolicy = new RouteIdFileNamingPolicy();
     
     public TimetableBuilderOutput generate(TimetableBuilderInput request) {
        
@@ -34,7 +41,7 @@ public class TimetableDocumentBuilder {
         List<TimetableDocumentStructure> singleTimetableDocuments = new ArrayList<>();
         for(Map.Entry<RouteModel, List<TimetablePageStructure>> singleTimetableEntry : singleTimetablesDocuments.entrySet()) {
             RouteModel routeModel = singleTimetableEntry.getKey();
-            String fileName = routeModel.getId().toString();
+            String fileName = getFileName(List.of(routeModel));
 
             TimetableDocumentStructure timetableDocumentStructure = new TimetableDocumentStructure();
             timetableDocumentStructure.setFileName(fileName);
@@ -59,7 +66,7 @@ public class TimetableDocumentBuilder {
         for(Map.Entry<RoutesWrapper, List<TimetablePageStructure>> sharedTimetableEntry : sharedTimetables.entrySet()) {
             List<RouteModel> routeModels = sharedTimetableEntry.getKey().getRouteModels();
             if(routeModels.size() < 2) continue;
-            String fileName = routeModels.stream().map(RouteModel::getId).map(Object::toString).reduce((s, s2) -> s + "_" + s2).orElse("");
+            String fileName = getFileName(routeModels);
 
             TimetableDocumentStructure timetableDocumentStructure = new TimetableDocumentStructure();
             timetableDocumentStructure.setFileName(fileName);
@@ -78,6 +85,10 @@ public class TimetableDocumentBuilder {
         }
 
         return timetablePageStructure;
+    }
+    
+    private String getFileName(List<RouteModel> routeModels) {
+        return fileNamingPolicy.getFileName(routeModels);
     }
 }
 

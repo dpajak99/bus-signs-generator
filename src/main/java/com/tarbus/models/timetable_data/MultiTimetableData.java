@@ -40,8 +40,16 @@ public class MultiTimetableData implements TimetableData {
         return List.copyOf(destinationModelMap.values());
     }
     
+    @Override
     public boolean isStopOnRequest() {
+        if( schedules.isEmpty() ) {
+            return false;
+        }
         return schedules.get(0).getRouteConnection().getIsOptional() == 1;
     }
     
+    @Override
+    public StopModel getStop() {
+        return stop;
+    }
 }

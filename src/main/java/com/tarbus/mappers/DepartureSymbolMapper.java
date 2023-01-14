@@ -1,6 +1,6 @@
 package com.tarbus.mappers;
 
-import com.tarbus.infra.entity.DepartureSymbolEntity;
+import com.tarbus.entity.DepartureSymbolEntity;
 import com.tarbus.models.schedule.SymbolModel;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,7 @@
 package com.tarbus.models;
 
 import com.tarbus.models.schedule.RouteModel;
-import com.tarbus.models.schedule.TimetableTemplateModel;
+import com.tarbus.models.schedule.timetable_template_model.TimetableTemplateModel;
 import com.tarbus.models.timetable_template_content.MultiTimetableTemplateContent;
 import com.tarbus.models.timetable_template_content.SingleTimetableTemplateContent;
 import com.tarbus.models.timetable_template_content.TimetableTemplateContent;
@@ -39,24 +39,6 @@ public class TimetablePageStructure {
         return new ArrayList<>(routes);
     }
 
-    private void addOrCreateMultitemplateIfExists(TimetableTemplateModel timetableTemplate, SingleTimetableData stopSingleTimetableData) {
-        if (structure.isEmpty()) {
-            structure.add(new MultiTimetableTemplateContent(timetableTemplate, List.of(stopSingleTimetableData), List.of(stopSingleTimetableData.getRoute())));
-            return;
-        }
-
-        List<TimetableTemplateContent> tmpStructure = new ArrayList<>(structure);
-        for (TimetableTemplateContent timetableTemplateContent : tmpStructure) {
-            if (timetableTemplateContent instanceof MultiTimetableTemplateContent multiTemplate && multiTemplate.getTimetableTemplate().equals(timetableTemplate)) {
-                multiTemplate.add(stopSingleTimetableData, stopSingleTimetableData.getRoute());
-                return;
-            } else {
-                structure.add(new MultiTimetableTemplateContent(timetableTemplate, List.of(stopSingleTimetableData), List.of(stopSingleTimetableData.getRoute())));
-            }
-        }
-
-    }
-
     public String buildHtml() throws IOException {
         StringBuilder htmlBuilder = new StringBuilder();
         htmlBuilder.append(getHtmlHeader());
@@ -69,6 +51,22 @@ public class TimetablePageStructure {
         return htmlBuilder.toString();
     }
 
+
+    private void addOrCreateMultitemplateIfExists(TimetableTemplateModel timetableTemplate, SingleTimetableData stopSingleTimetableData) {
+        if (structure.isEmpty()) {
+            structure.add(new MultiTimetableTemplateContent(timetableTemplate, List.of(stopSingleTimetableData), List.of(stopSingleTimetableData.getRoute())));
+            return;
+        }
+
+        List<TimetableTemplateContent> tmpStructure = new ArrayList<>(structure);
+        for (TimetableTemplateContent timetableTemplateContent : tmpStructure) {
+            if (timetableTemplateContent instanceof MultiTimetableTemplateContent multiTemplate && multiTemplate.getTimetableTemplate().equals(timetableTemplate)) {
+                multiTemplate.add(stopSingleTimetableData, stopSingleTimetableData.getRoute());
+                return;
+            }
+        }
+        structure.add(new MultiTimetableTemplateContent(timetableTemplate, List.of(stopSingleTimetableData), List.of(stopSingleTimetableData.getRoute())));
+    }
     private String getHtmlHeader() throws IOException {
         List<String> timetableIds = new ArrayList<>();
         for(TimetableTemplateContent timetableTemplateContent : structure) {

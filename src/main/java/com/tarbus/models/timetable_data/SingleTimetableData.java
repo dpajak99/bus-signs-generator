@@ -35,6 +35,16 @@ public class SingleTimetableData implements TimetableData {
     }
 
     @Override
+    public boolean isStopOnRequest() {
+        return routeConnection.getIsOptional() == 1;
+    }
+
+    @Override
+    public StopModel getStop() {
+        return stop;
+    }
+
+    @Override
     public String toString() {
         return "SingleTimetableData{" +
                 "stop=" + stop +

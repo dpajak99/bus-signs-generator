@@ -1,6 +1,6 @@
 package com.tarbus.mappers;
 
-import com.tarbus.infra.entity.TimetableVersionEntity;
+import com.tarbus.entity.TimetableVersionEntity;
 import com.tarbus.models.schedule.TimetableVersionModel;
 import org.springframework.stereotype.Component;
 

@@ -2,7 +2,7 @@ package com.tarbus.models.schedule;
 
 import lombok.Getter;
 import lombok.Setter;
-import com.tarbus.infra.entity.CompanyEntity;
+import com.tarbus.entity.CompanyEntity;
 
 import java.util.Date;
 

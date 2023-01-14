@@ -1,6 +1,6 @@
 package com.tarbus.mappers;
 
-import com.tarbus.infra.entity.LineEntity;
+import com.tarbus.entity.LineEntity;
 import com.tarbus.models.schedule.LineModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

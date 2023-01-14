@@ -1,7 +1,7 @@
 package com.tarbus.mappers;
 
 import com.tarbus.models.schedule.TrackModel;
-import com.tarbus.infra.entity.TrackEntity;
+import com.tarbus.entity.TrackEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

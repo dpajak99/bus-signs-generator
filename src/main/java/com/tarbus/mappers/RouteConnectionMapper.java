@@ -1,6 +1,6 @@
 package com.tarbus.mappers;
 
-import com.tarbus.infra.entity.RouteConnectionEntity;
+import com.tarbus.entity.RouteConnectionEntity;
 import com.tarbus.models.schedule.RouteConnectionModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
