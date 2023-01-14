@@ -1,13 +1,14 @@
-package com.tarbus.integration;
+package com.tarbus.integration.builders;
 
 import com.tarbus.Application;
 import com.tarbus.builders.TimetableDocumentBuilder;
 import com.tarbus.config.H2TestProfileJPAConfig;
-import com.tarbus.infra.services.generator.TimetableService;
+import com.tarbus.services.generator.TimetableService;
 import com.tarbus.models.RouteTimetable;
 import com.tarbus.models.TimetableBuilderInput;
 import com.tarbus.models.TimetableBuilderOutput;
 import com.tarbus.models.TimetableDocumentStructure;
+import com.tarbus.utils.file_naming_policy.RouteIdFileNamingPolicy;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class TimetableDocumentBuilderIntegrationTest {
     public void testGenerate1() {
         // Arrange
         TimetableDocumentBuilder timetableDocumentBuilder = new TimetableDocumentBuilder();
+        timetableDocumentBuilder.setFileNamingPolicy(new RouteIdFileNamingPolicy());
 
         RouteTimetable from1 = timetableService.getRouteTimetableByRouteId(1L);
 
@@ -45,14 +47,15 @@ public class TimetableDocumentBuilderIntegrationTest {
         assertEquals(0, actualTimetableBuilderOutput.getSharedTimetables().size());
         assertEquals(List.of(), actualTimetableBuilderOutput.getSharedTimetables().stream().map(TimetableDocumentStructure::getFileName).toList());
 
-        assertEquals(2, actualTimetableBuilderOutput.getSingleTimetables().size());
-        assertEquals(List.of("1", "2"), actualTimetableBuilderOutput.getSingleTimetables().stream().map(TimetableDocumentStructure::getFileName).toList());
+        assertEquals(1, actualTimetableBuilderOutput.getSingleTimetables().size());
+        assertEquals(List.of("1"), actualTimetableBuilderOutput.getSingleTimetables().stream().map(TimetableDocumentStructure::getFileName).toList());
     }
     
     @Test
     public void testGenerate2() {
         // Arrange
         TimetableDocumentBuilder timetableDocumentBuilder = new TimetableDocumentBuilder();
+        timetableDocumentBuilder.setFileNamingPolicy(new RouteIdFileNamingPolicy());
         
         RouteTimetable from1 = timetableService.getRouteTimetableByRouteId(1L);
         RouteTimetable to1 = timetableService.getRouteTimetableByRouteId(2L);
@@ -75,6 +78,7 @@ public class TimetableDocumentBuilderIntegrationTest {
     public void testGenerate3() {
         // Arrange
         TimetableDocumentBuilder timetableDocumentBuilder = new TimetableDocumentBuilder();
+        timetableDocumentBuilder.setFileNamingPolicy(new RouteIdFileNamingPolicy());
 
         RouteTimetable from1 = timetableService.getRouteTimetableByRouteId(1L);
         RouteTimetable to1 = timetableService.getRouteTimetableByRouteId(2L);

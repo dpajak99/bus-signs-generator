@@ -1,4 +1,4 @@
-package com.tarbus.integration;
+package com.tarbus.integration.utils;
 
 import com.tarbus.utils.TimetableTemplateResolver;
 import junit.framework.TestCase;

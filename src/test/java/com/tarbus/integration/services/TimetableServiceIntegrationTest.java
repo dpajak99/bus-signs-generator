@@ -1,15 +1,15 @@
-package com.tarbus.integration;
+package com.tarbus.integration.services;
 
 import com.tarbus.Application;
 import com.tarbus.config.H2TestProfileJPAConfig;
-import com.tarbus.infra.entity.TimetableTemplateType;
-import com.tarbus.infra.services.generator.TimetableService;
+import com.tarbus.entity.TimetableTemplateType;
+import com.tarbus.models.schedule.timetable_template_model.TimetableTemplateModel;
+import com.tarbus.services.generator.TimetableService;
 import com.tarbus.models.DeparturesWrapper;
 import com.tarbus.models.RouteTimetable;
 import com.tarbus.models.StopTimetableConfig;
 import com.tarbus.models.schedule.*;
 import com.tarbus.models.timetable_data.SingleTimetableData;
-import com.tarbus.utils.TimetableTemplateResolver;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,9 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {
