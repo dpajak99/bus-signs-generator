@@ -6,6 +6,4 @@ public interface TimetableTemplateService {
     TimetableTemplateModel getTimetableTemplateById(String id);
     TimetableTemplateModel getTimetableTemplateByRouteId(Long routeId);
     TimetableTemplateModel getTimetableTemplateByCompanyId(Long companyId);
-
-    void setTimetableTemplateByCompanyId(Long companyId, String timetableTemplateId);
 }
