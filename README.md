@@ -1,44 +1,41 @@
-# System generowania tabliczek przystankowych		
+# Bus Stop Signage Generation System
 
-## Wstęp
-Celem pracy jest stworzenie serwisu generującego tablice przystankowe dla pojazdów komunikacji publicznej. 
-Tworzony serwis jest elementem większego systemu od półtorej roku wspomagającego organizację i zarządzanie komunikacją publiczną. Danych rozkładowych do tablic przystankowych dostarcza moduł "schedule".
+## Introduction
+The aim of this project is to create a service that generates bus stop signs for public transport vehicles. The service being developed is part of a larger system that has been supporting the organization and management of public transport for a year and a half. The "schedule" module provides the timetable data for the bus stop signs.
 
-## Opis
-Serwis umożliwia generowanie tablic przystankowych w formacie PDF z podziałem na firmy, wersje rozkładu, linie oraz przystanki. Każda firma powinna mieć możliwość wyboru własnego szablonu tablicy przystankowej. Ponadto, powinna istnieć możliwość zmienienia rozkładu dla pojedynczych przystanków. Jednorazowo użyta konfiguracja dla firmy/użytkownika powinna zostać zapisana w bazie danych i ustawiona jako domyślna przy tworzeniu kolejnych zapytań. 
+## Description
+The service enables the generation of bus stop signs in PDF format, divided by companies, schedule versions, lines, and stops. Each company should be able to choose its own bus stop sign template. Additionally, it should be possible to change the schedule for individual stops. A configuration used once for a company/user should be saved in the database and set as the default when creating subsequent queries.
 
-## Funkcjonalności tablic przystankowych
-Tablice przystankowe są generowane z rozszerzeniem PDF. System generuje tablice przystankowe w różnych rozmiarach. Jedna tablica przystankowa może zawierać rozkłady jazdy kilku linii, również tych z różnych firm. Jedna tablica przystankowa zawiera rozkład jazdy tylko dla jednego przystanku autobusowego.
+## Bus Stop Signage Features
+Bus stop signs are generated with a PDF extension. The system generates bus stop signs in various sizes. A single bus stop sign may contain timetables for several lines, including those from different companies. One bus stop sign contains a timetable for only one bus stop.
 
-## Biznes plan
-System generowania tablic przystankowych istnieje już w wersji alpha. Obecna wersja zawiera wiele błędów i jest ciężka do modyfikacji i wprowadzania nowych funkcjonalności. Z tego powodu wybraliśmy ten projekt. Chcemy dopracować system aby trzymał się dobrych standardów programowania. System od roku przynosi regularne zyski. Funkcjonalności serwisu opracowane są na podstawie dialogu z klientami i ich zapotrzebowań.
+## Business Plan
+The bus stop signage generation system already exists in an alpha version. The current version contains many errors and is difficult to modify and introduce new features. For this reason, we have chosen this project. We want to refine the system to adhere to good programming standards. The system has been generating regular profits for a year. The service's features are developed based on dialogue with clients and their needs.
 
-## Diagram ERD
+## ERD Diagram
 
-Diagram ERD dla serwisu wygląda następująco:
+The ERD diagram for the service is as follows:
 ![schedule_template_erd](/img/drive_module_erd.png)
 
-Nie zawiera on dużo tabeli, ponieważ większość funkcjonalności jest wykonywana w odrębnych modułach. 
-Jako projekt na przedmiot Testowanie i Jakość Oprogramowania II chcemy oddać wyłącznie moduł generowania tablic, ponieważ poprawne napisanie całego systemu w tak krótkim czasie jest niemożliwe. Jednakże do oceny oddany zostanie cały serwer, w celu możliwości sprawdzenia poprawności wykonania zadania. 
+It does not contain many tables, as most of the functionalities are performed in separate modules. As a project for the Software Testing and Quality II course, we only want to submit the bus stop sign generation module, as it is impossible to write the entire system correctly in such a short time. However, the entire server will be submitted for evaluation to check the correctness of the task.
 
-Aktualna struktura bazy danych dla całego projektu:
+Current database structure for the entire project:
 ![tarbus_erd](/img/tarbus_erd.png)
 
-## Rozkład obowiązków
+## Distribution of Responsibilities
 
-Zespół składa się z trzech osób, które będą odpowiedzialne za:
-- Dominik Pająk - dopracowanie istniejących modułów "drive", "schedule" i "core" do planowanych funkcjonalności modułu "schedule_tables_generator". Przydzielanie zadań, tworzenie dokumentacji, zarządzanie spójnością projektu.
-- Bartosz Dymański - implementacja bazy danych, serwisów i repozytoriów. Przygotowanie przykładowych tablic przystankowych w HTML z użyciem frameworka thymeleaf
-- Dariusz Czajka - stworzenie parsera PDF, zamieniającego szablon napisany w HTML na plik PDF
+The team consists of three people who will be responsible for:
+- Dominik Pająk - refining existing "drive," "schedule," and "core" modules for the planned functionality of the "schedule_tables_generator" module. Assigning tasks, creating documentation, managing project consistency.
+- Bartosz Dymański - implementation of the database, services, and repositories. Preparing sample HTML bus stop signs using the thymeleaf framework.
+- Dariusz Czajka - creating a PDF parser, converting a template written in HTML into a PDF file.
 
 ## Stack
-1. **Technologia** - Java z wykorzystaniem frameworka [Spring](https://spring.io/)
-2. **Baza danych** - Relacyjna baza danych [PostgreSQL](https://www.postgresql.org/)
-3. **Dokumentacja** - [Swagger](https://swagger.io/)
-4. **Inne**
-    - **Generowanie szablonów html** - [Themyleaf]({https://www.thymeleaf.org/)
-    - **Generowanie PDF** - [OpenPDF](https://github.com/LibrePDF/OpenPDF)
-
+1. **Technology** - Java using the [Spring](https://spring.io/) framework.
+2. **Database** - Relational database [PostgreSQL](https://www.postgresql.org/).
+3. **Documentation** - [Swagger](https://swagger.io/).
+4. **Others**
+    - **HTML template generation** - [Thymeleaf](https://www.thymeleaf.org/)
+    - **PDF Generation** - [OpenPDF](https://github.com/LibrePDF/OpenPDF)
 
 # Notes
 https://github.com/itext/itext7
